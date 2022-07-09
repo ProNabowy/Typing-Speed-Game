@@ -130,7 +130,6 @@ const obj = {
 
 function innerHt() {
 
-    const arrLength = arrOfWords.length;
 
     const level = select.value;
 
@@ -145,7 +144,12 @@ function innerHt() {
     score.innerHTML = 0;
 
 
+    if(select.value === "Noraml") scoreFrom.innerHTML = noraml.length;
+    if(select.value === "Easy") scoreFrom.innerHTML = easy.length;
+    if(select.value === "Hard") scoreFrom.innerHTML = arrOfWords.length;
+
 }
+
 
 innerHt();
 
@@ -157,19 +161,20 @@ select.addEventListener("click", innerHt);
 
 function getLevel(level) {
 
-    const randHardWor = level[Math.trunc(Math.random() * level.length)];
+    const randomWords = level[Math.trunc(Math.random() * level.length)];
 
-    const wordHardIndex = level.indexOf(randHardWor);
+    const wordHardIndex = level.indexOf(randomWords);
 
     // Delete Word From Array To Add Array To Page
 
+    // add word to inner HTML 
+
+    word.innerHTML = randomWords;
+
+
     level.splice(wordHardIndex , 1);
 
-        // add word to inner HTML 
 
-    word.innerHTML = randHardWor;
-
-    scoreFrom.innerHTML = level.length;
 
 } 
 
@@ -181,9 +186,9 @@ function randomWord() {
 
         getLevel(arrOfWords);
 
-    }else if(select.value === "esay") {
+    }else if(select.value === "Easy") {
 
-        getLevel(esay);
+        getLevel(easy);
 
     }else if(select.value === "Noraml") {
         
@@ -257,13 +262,14 @@ function play() {
 
             if(input.value.toLowerCase() === word.innerHTML.toLowerCase()) {
 
-                if(arrOfWords.length > 0) {
+                if(arrOfWords.length > 0 && noraml.length > 0 && easy.length > 0) {
                     
                     randomWord();
                     
                     score.innerHTML++;
                     
                 }else {
+
 
                     good.style.cssText += "display:block";
 
