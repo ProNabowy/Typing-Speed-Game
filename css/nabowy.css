@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --min-color: #2196f3;
+}
+body {
+    background-color: #eee;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+.title {
+    padding: 15px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--min-color);
+    text-align: center;
+}
+.container {
+    margin: 10px auto;
+    width: 800px;
+}
+select {
+    width: 400px;
+    text-align: center;
+    padding: 4px 10px;
+    border: 3px solid var(--min-color);
+    cursor: pointer;
+    outline: none;
+    display: block;
+    margin: 0px auto;
+    font-size: 20px;
+}
+
+.container .lvl {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+}
+.container .lvl .lvl-game,
+.container .lvl .lvl-sconds {
+    position: relative;
+    color: #098969;
+
+}
+.container .lvl .lvl-game::before,
+.container .lvl .lvl-sconds::before {
+    content: "[ ";
+}
+.container .lvl .lvl-game::after,
+.container .lvl .lvl-sconds:after {
+    content: " ]";
+}
+.word {
+    color: var(--min-color);
+    font-size: 50px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    user-select: none;
+}
+.start {
+    width: 100%;
+    background-color: #098969;
+    border: none;
+    outline: none;
+    padding: 13px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+input {
+    margin: 10px 0;
+    width: 100%;
+    border: 3px solid var(--min-color);
+    background-color: white;
+    padding: 15px;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    text-transform: capitalize;
+    caret-color: var(--min-color);
+}
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+}
+.words span {
+    margin: 2px;
+    background-color: var(--min-color);
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+}
+.score {
+    margin: 10px 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.time-sec,
+.score-num,
+.arr-leng {
+    color: #098969;
+}
+.good {
+    color: var(--min-color);
+    font-size: 60px;
+    font-weight: bold;
+    margin: 30px 0;
+    text-align: center;
+    display: none;
+}
+.bad {
+    color: red;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 30px 0;
+    text-align: center;
+    display: none;
+}
+.localStroage {
+    background-color: #098969;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    margin: 20px auto;
+    padding: 15px;
+    width: fit-content;
+}
+.again {
+    background-color: #098969;
+    color: white;
+    font-size: 24px;
+    padding: 5px 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    display: none;
+}
