@@ -9,6 +9,7 @@
 // [8] ===========================================================>  Create Function to Run time For Game
 // [9] ===========================================================>  Create event to call Function when user click on Start Play
 // [10] ==========================================================>  Create Function To add data To LocalStorage
+
 const select = document.querySelector("select");
 
 const gameLevel = document.querySelector(".lvl-game");
@@ -145,7 +146,9 @@ function innerHt() {
 
 
     if(select.value === "Noraml") scoreFrom.innerHTML = noraml.length;
+
     if(select.value === "Easy") scoreFrom.innerHTML = easy.length;
+
     if(select.value === "Hard") scoreFrom.innerHTML = arrOfWords.length;
 
 }
@@ -182,38 +185,24 @@ function getLevel(level) {
 
 function randomWord() {
 
-    if(select.value === "Hard") {
+    if(select.value === "Hard") getLevel(arrOfWords);
 
-        getLevel(arrOfWords);
+    if(select.value === "Easy") getLevel(easy);
 
-    }else if(select.value === "Easy") {
-
-        getLevel(easy);
-
-    }else if(select.value === "Noraml") {
-        
-        getLevel(noraml);
-        
-    }
+    if(select.value === "Noraml") getLevel(noraml);
 
     // You Should To emepty Wrods div Before To Call Function to add it to page
 
     words.innerHTML = '';
 
-    if(select.value === "Noraml") {
+    if(select.value === "Noraml") addWordsToPage(noraml);
 
-        addWordsToPage(noraml);
-
-    }
-    if(select.value === "Hard") {
-
-        addWordsToPage(arrOfWords);
-
-    }
+    if(select.value === "Hard") addWordsToPage(arrOfWords);
 
     if(select.value === "Easy") addWordsToPage(easy);
 
     play();
+
 };
 
 // [5] ===========================================================>  Create Function to add words in page
@@ -270,8 +259,9 @@ function play() {
                     
                 }else {
 
-
                     good.style.cssText += "display:block";
+
+                    again.style.cssText += "display:block";
 
                 }
 
@@ -286,7 +276,6 @@ function play() {
             }
 
         }
-
 
     }, 1000);
 
@@ -304,11 +293,7 @@ btn.addEventListener("click" , function() {
 
     // add Condation to help user if him play on hard lvl
 
-    if(select.value === "Hard") {
-
-        timeLeft.innerHTML = 6;
-
-    }
+    if(select.value === "Hard") timeLeft.innerHTML = 6;
 
 });
 
@@ -324,13 +309,11 @@ again.addEventListener("click" , _ => window.location.reload());
 
 function LocalStor() {
 
-    let date = new Date();
-
-    let day = date.getDay();
+    let date = new Date().getDay();
 
     const arrOfDays = ["Sunday" , "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ];
 
-    localStorage.setItem("day & Score" , `day is ${arrOfDays[day]} & Your Last Score is ${score.innerHTML}`);
+    localStorage.setItem("day & Score" , `day is ${arrOfDays[date]} & Your Last Score is ${score.innerHTML}`);
 
 };
 
@@ -352,8 +335,4 @@ function setDateToBody() {
 
 // Check if LocalStorage Have date Or Not
 
-if(localStorage.getItem("day & Score")) {
-
-    setDateToBody();
-
-};
+if(localStorage.getItem("day & Score")) setDateToBody();
