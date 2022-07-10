@@ -10,6 +10,7 @@ body {
     background-color: #eee;
     font-family: sans-serif;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .title {
@@ -160,7 +161,9 @@ Set Media width and height
 
 @media (max-width:768px) {
     .container {
+        margin: 10px 0;
         width: 100%;
+        overflow: hidden;
     }
     
 }
