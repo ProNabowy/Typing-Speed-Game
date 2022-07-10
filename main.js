@@ -1,13 +1,23 @@
 // Set What i wanna Do
+
 // [1] ===========================================================>  Selector All elemnts From HTML 
+
 // [2] ===========================================================>  Create Arrays To Set words for it
+
 // [3] ===========================================================>  Create Object to Know Level Of Game
+
 // [4] ===========================================================>  Create Function To Stup HTML Elements
+
 // [5] ===========================================================>  Create Function To Set Correct Words
+
 // [6] ===========================================================>  Create Random Function To Select Random Word
+
 // [7] ===========================================================>  Create Function to add words in page
+
 // [8] ===========================================================>  Create Function to Run time For Game
+
 // [9] ===========================================================>  Create event to call Function when user click on Start Play
+
 // [10] ==========================================================>  Create Function To add data To LocalStorage
 
 const select = document.querySelector("select");
@@ -245,10 +255,6 @@ function play() {
 
             clearInterval(start);
 
-            // Calling Function To Add Score To LocalStorage
-
-            LocalStor();
-
             if(input.value.toLowerCase() === word.innerHTML.toLowerCase()) {
 
                 if(arrOfWords.length > 0 && noraml.length > 0 && easy.length > 0) {
@@ -261,7 +267,11 @@ function play() {
 
                     good.style.cssText += "display:block";
 
+                    score.innerHTML = 20;
+
                     again.style.cssText += "display:block";
+
+                    clickToPlayAgain();
 
                 }
 
@@ -273,9 +283,15 @@ function play() {
 
                 again.style.cssText += "display:block";
 
-            }
+                clickToPlayAgain();
 
-        }
+            };
+
+        };
+
+                    // Calling Function To Add Score To LocalStorage
+
+                    LocalStor();
 
     }, 1000);
 
@@ -294,6 +310,10 @@ btn.addEventListener("click" , function() {
     // add Condation to help user if him play on hard lvl
 
     if(select.value === "Hard") timeLeft.innerHTML = 6;
+
+    // Hide Select to Prevent  user from accessing it
+
+    select.remove();
 
 });
 
@@ -336,3 +356,31 @@ function setDateToBody() {
 // Check if LocalStorage Have date Or Not
 
 if(localStorage.getItem("day & Score")) setDateToBody();
+
+// Convert Play Again when user click enter
+
+function clickToPlayAgain() {
+
+    window.addEventListener("keyup" , function(e) {
+
+        if(e.key === "Enter") again.click();
+
+    });
+    
+};
+
+// Create Function To Click on button  to play 
+
+function clickBtn() {
+
+    this.addEventListener("keyup" , function(e) {
+
+        if(e.key === "Enter") btn.click();
+
+    });
+
+};
+
+// Calling Function To Convert Click To Enter Key
+
+clickBtn();
