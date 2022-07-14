@@ -373,9 +373,7 @@ function clickToPlayAgain() {
 
 function clickBtn() {
 
-    this.addEventListener("keyup" , function(e) {
-        if(word.innerHTML == "") if(e.key === "Enter") btn.click();
-    });
+    this.addEventListener("keyup" , function(e) {if(word.innerHTML == "") if(e.key === "Enter") btn.click()});
 
 };
 
