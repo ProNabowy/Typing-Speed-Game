@@ -10,7 +10,7 @@ body {
     background-color: #eee;
     font-family: sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .title {
@@ -163,7 +163,7 @@ Set Media width and height
     .container {
         margin: 10px 0;
         width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     
 }
