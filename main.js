@@ -141,7 +141,6 @@ const obj = {
 
 function innerHt() {
 
-
     const level = select.value;
 
     const selectLevel = obj[level];
@@ -249,7 +248,7 @@ function play() {
 
     const start = setInterval(() => {
         
-        timeLeft.innerHTML--
+        timeLeft.innerHTML--;
 
         if(timeLeft.innerHTML == "0") {
 
@@ -298,6 +297,7 @@ function play() {
 }
 
 // Create event to call Function when user click on Start Play
+
 
 btn.addEventListener("click" , function() {
 
@@ -374,9 +374,7 @@ function clickToPlayAgain() {
 function clickBtn() {
 
     this.addEventListener("keyup" , function(e) {
-
-        if(e.key === "Enter") btn.click();
-
+        if(word.innerHTML == "") if(e.key === "Enter") btn.click();
     });
 
 };
